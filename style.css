@@ -1,0 +1,133 @@
+/* While blocked, remove the feed itself so nothing loads, autoplays,
+   or registers views behind the overlay. */
+html.li-focus-blocked main {
+  display: none !important;
+}
+
+#__li_focus_block__ {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1a2980, #26d0ce);
+  background-size: 400% 400%;
+  animation: li-focus-drift 18s ease infinite;
+}
+
+@keyframes li-focus-drift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.li-focus-card {
+  text-align: center;
+  max-width: 480px;
+  padding: 44px 40px 32px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  color: #fff;
+  animation: li-focus-rise 0.5s ease both;
+}
+
+@keyframes li-focus-rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.li-focus-emoji {
+  font-size: 44px;
+  margin-bottom: 8px;
+}
+
+.li-focus-card h1 {
+  font-size: 30px;
+  margin: 0 0 6px;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+
+.li-focus-sub {
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0 0 22px;
+  font-size: 15px;
+}
+
+.li-focus-quote {
+  margin: 0 0 22px;
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.18);
+  font-size: 16px;
+  line-height: 1.5;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.li-focus-quote cite {
+  display: block;
+  margin-top: 8px;
+  font-size: 13px;
+  font-style: normal;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.li-focus-streak {
+  display: inline-block;
+  margin: 0 0 24px;
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.22);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.li-focus-streak strong {
+  color: #7ef0c0;
+}
+
+.li-focus-links {
+  margin-bottom: 20px;
+}
+
+.li-focus-links a {
+  display: inline-block;
+  margin: 0 6px;
+  padding: 11px 26px;
+  background: #fff;
+  color: #16324a;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.li-focus-links a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.li-focus-unlock {
+  background: none;
+  border: none;
+  padding: 6px 10px;
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-family: inherit;
+}
+
+.li-focus-unlock:hover {
+  color: rgba(255, 255, 255, 0.85);
+}
